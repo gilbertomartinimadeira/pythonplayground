@@ -1,6 +1,8 @@
+import uvicorn
 from fastapi import FastAPI
-from redis_om import get_redis_connection,HashModel
+from redis_om import get_redis_connection, HashModel
 from fastapi.middleware.cors  import CORSMiddleware
+
 # Replace these values with your Redis server configuration
 redis_host = 'localhost'
 redis_port = 6379
@@ -12,7 +14,7 @@ redis_password = 'admin'  # Leave it empty if there is no password
     # value = redis_connection.get('my_key')
     #print(f'The value of my_key is: {value}')
 
-app = FastAPI()    
+app = FastAPI()
 
 app.add_middleware(CORSMiddleware, 
                    allow_origins=['http://localhost:3000'],
@@ -29,6 +31,18 @@ class Product(HashModel):
     class Meta:
         database = redis_connection
 
+
+
 @app.get("/products")
 def all():
-    return Product.all_pks()
+    all_products = Product.all_pks()
+    return all_products
+
+@app.post("/products")
+def create(product: Product):
+    return product.save()
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)    
+    
