@@ -38,9 +38,15 @@ def all():
     all_products = Product.all_pks()
     return [format(p) for p in all_products]
 
+@app.get("/products/{pk}")
+def get_by_pk(pk):
+    return Product.get(pk)
+
 @app.post("/products")
 def create(product: Product):
     return product.save()
+
+
 
 def format(pk):
     product = Product.get(pk)
