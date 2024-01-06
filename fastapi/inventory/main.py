@@ -36,13 +36,22 @@ class Product(HashModel):
 @app.get("/products")
 def all():
     all_products = Product.all_pks()
-    return all_products
+    return [format(p) for p in all_products]
 
 @app.post("/products")
 def create(product: Product):
     return product.save()
 
+def format(pk):
+    product = Product.get(pk)
 
+    return {
+        'id': product.pk,
+        'price' : product.price,
+        'name': product.name,
+        'quantity': product.quantity
+
+    }
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)    
     
