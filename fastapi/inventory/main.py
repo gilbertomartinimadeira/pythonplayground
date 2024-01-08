@@ -18,7 +18,7 @@ app = FastAPI()
 
 app.add_middleware(CORSMiddleware, 
                    allow_origins=['http://localhost:3000'],
-                   allow_methods=['*'],
+                   allow_methods=['GET','POST', 'DELETE'],
                    allow_headers=['*'])
 
 redis_connection = get_redis_connection(host=redis_host, port=redis_port,db=redis_db)
@@ -58,6 +58,12 @@ def format(pk):
         'quantity': product.quantity
 
     }
+
+
+@app.delete("/products/{pk}")
+def delete(pk : str):
+    return Product.delete(pk)
+
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)    
     
