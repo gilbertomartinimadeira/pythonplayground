@@ -264,19 +264,141 @@ word_count = dict()
 # print(media)
 
 
-how_many_snakes = 1
-snake_string = """
-Welcome to Python3!
+# how_many_snakes = 1
+# snake_string = """
+# Welcome to Python3!
 
-             ____
-            / . .\\
-            \  ---<
-             \  /
-   __________/ /
--=:___________/
+#              ____
+#             / . .\\
+#             \  ---<
+#              \  /
+#    __________/ /
+# -=:___________/
 
-<3, Juno
-"""
+# <3, Juno
+# """
 
 
-print(snake_string * how_many_snakes)
+# print(snake_string * how_many_snakes)
+
+
+# add = lambda a,b: a + b
+
+# print(add(3,4))
+
+
+# letras = ['a','a','a','b','b','c','a','b','a','a','a']
+
+# ocorrencias = {}
+
+# for letra in letras:
+#     ocorrencias[letra]  = ocorrencias.get(letra, 0) + 1
+
+# print(ocorrencias)
+
+# print(ocorrencias.get('z','não tem'))
+# print(list(ocorrencias.items()))
+
+# cast = {
+#            "Jerry Seinfeld": "Jerry Seinfeld",
+#            "Julia Louis-Dreyfus": "Elaine Benes",
+#            "Jason Alexander": "George Costanza",
+#            "Michael Richards": "Cosmo Kramer"
+#        }
+
+# for actor in cast:
+#     print(actor)
+
+# for actor, role in cast.items():
+#     print('Actor: {}, Role: {}'.format(actor, role))
+
+# result = 0
+# basket_items = {'apples': 4, 'oranges': 19, 'kites': 3, 'sandwiches': 8}
+fruits = ['apples', 'oranges', 'pears', 'peaches', 'grapes', 'bananas']
+
+#Calculate how many fruits are in the basket
+
+# for item, count in basket_items.items():
+#     if item in fruits:
+#         result += count
+
+# print(result)
+
+# numbers = range(1,11)
+# squared = []
+# # for n in numbers:
+# #     squared.append( n * n)
+# # print(squared)
+
+# def squareNum(x) -> int:
+#     return x * x
+
+
+# squared = [squareNum(x) for x in numbers if x % 2 == 0]
+
+
+
+# print(squared)
+
+
+# card_deck = [4, 11, 8, 5, 13, 2, 8, 10]
+
+# sorted_deck = sorted(card_deck)
+
+# # hand = []
+# current = 0
+# while sum(hand) < 17:
+#     hand.append(card_deck.pop())
+#     print(hand)
+
+# print(len(card_deck))
+# print(min(card_deck))
+# print(max(card_deck))
+# print(sorted_deck)
+
+
+
+
+# idades = [41,38,4]
+
+# familia = zip(nomes, idades)
+
+# for nome, idade in familia:
+#     print(nome, idade)
+
+
+# nomes = ['gilberto', 'joselia', 'joao']
+# tuplas = zip( range(len(nomes)) , nomes)
+# tuplas2 = enumerate(nomes)
+
+
+# print(sorted(list(tuplas)))
+# print(list(tuplas2))
+
+# unzipped = zip(*tuplas)
+# print(list(unzipped))
+
+# x_coord = [23, 53, 2, -12, 95, 103, 14, -5]
+# y_coord = [677, 233, 405, 433, 905, 376, 432, 445]
+# z_coord = [4, 16, -6, -42, 3, -6, 23, -1]
+# labels = ["F", "J", "A", "Q", "Y", "B", "W", "X"]
+
+# points = []
+
+# for l, x, y, z in zip(labels, x_coord, y_coord, z_coord):
+#     points.append((l, x, y, z))
+
+# for p in points:
+#     print(p)
+
+
+data = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (9, 10, 11))
+
+cols, rows, dom = zip(*data)
+
+print(cols, rows, dom)
+
+data_transpose = tuple((cols, rows, dom))
+
+
+print(data_transpose)
